@@ -109,6 +109,7 @@
     gnupg
     chezmoi
     wl-clipboard
+    spotify
   ];
 
   programs.neovim = {
