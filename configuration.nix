@@ -129,6 +129,7 @@
     gnupg
     chezmoi
     wl-clipboard
+    wezterm
     spotify
   ];
 
