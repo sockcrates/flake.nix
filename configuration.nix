@@ -35,30 +35,50 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.enable = false;
 
   # GPU graphics acceleration
   hardware.graphics.enable = true;
 
-  # Kernel modesetting (for Wayland, smooth VT switching, etc)
-  hardware.nvidia.modesetting.enable = true;
-
   # Use closed source Nvidia drivers
-  hardware.nvidia.open = false;
-
-  # CUDA
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia = {
+    # Kernel modesetting (for Wayland, smooth VT switching, etc)
+    modesetting.enable = true;
+    # Proprietary NVidia driver
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # Smoother suspend/resume on laptops/desktops
+    powerManagement.enable = true;
+    nvidiaSettings = true;
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  # XWayland for legacy X apps (handy even on Wayland)
+  programs.xwayland.enable = true;
+
+  # Display/login manager (SDDM) with Wayland greeter.
+  services.displayManager.sddm.wayland.enable = true;
+
+  # ---- Portals & Wayland app backends ----
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
   };
+
+  # Make Chrome/Electron/Qt apps pick Wayland automatically
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";                 # Chromium/Chrome/Electron use Ozone/Wayland
+    QT_QPA_PLATFORM = "wayland";          # Qt on Wayland
+    # Optional niceties:
+    # ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    # GTK_THEME = "Breeze";               # if you want to force a GTK theme
+  };
+
+  # Wayland keymap
+  console.keyMap = "us";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
