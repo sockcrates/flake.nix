@@ -129,8 +129,9 @@
     gnupg
     chezmoi
     wl-clipboard
-    wezterm
     spotify
+    wezterm
+    tmux
   ];
 
   programs.neovim = {
@@ -146,6 +147,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   # List services that you want to enable:
