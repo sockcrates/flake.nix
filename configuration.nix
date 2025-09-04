@@ -131,6 +131,7 @@
     gnupg
     chezmoi
     wl-clipboard
+    ripgrep
     spotify
     wezterm
     tmux
