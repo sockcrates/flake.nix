@@ -37,6 +37,9 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
 
+  # Still needed for Nvidia driver
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   # GPU graphics acceleration
   hardware.graphics.enable = true;
 
