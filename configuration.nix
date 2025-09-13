@@ -139,6 +139,8 @@
     wezterm
     tmux
     zsh
+    mise
+    obsidian
   ];
 
   programs.zsh.enable = true;
