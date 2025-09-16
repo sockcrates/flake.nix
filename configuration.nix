@@ -141,6 +141,7 @@
     zsh
     mise
     obsidian
+    gnumake
   ];
 
   programs.zsh.enable = true;
