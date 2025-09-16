@@ -171,6 +171,7 @@
       pgf
       pgfplots;
     })
+    texlab
   ];
 
   programs.zsh.enable = true;
