@@ -71,9 +71,8 @@
     extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
   };
 
-  # Make Chrome/Electron/Qt apps pick Wayland automatically
   environment.sessionVariables = {
-    IS_NIXOS = "1";
+    # Make Chrome/Electron/Qt apps pick Wayland automatically
     NIXOS_OZONE_WL = "1";                 # Chromium/Chrome/Electron use Ozone/Wayland
     QT_QPA_PLATFORM = "wayland";          # Qt on Wayland
     # Optional niceties:
