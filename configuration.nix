@@ -172,7 +172,10 @@
 
       # graphics & plotting
       pgf
-      pgfplots;
+      pgfplots
+
+      # pdflatex and friends
+      latex-bin;
     })
     texlab
     nodejs
