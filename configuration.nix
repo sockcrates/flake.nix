@@ -73,6 +73,7 @@
 
   # Make Chrome/Electron/Qt apps pick Wayland automatically
   environment.sessionVariables = {
+    IS_NIXOS = "1";
     NIXOS_OZONE_WL = "1";                 # Chromium/Chrome/Electron use Ozone/Wayland
     QT_QPA_PLATFORM = "wayland";          # Qt on Wayland
     # Optional niceties:
@@ -142,7 +143,6 @@
     mise
     obsidian
     gnumake
-    texliveSmall
   ];
 
   programs.zsh.enable = true;
