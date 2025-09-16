@@ -142,6 +142,7 @@
     mise
     obsidian
     gnumake
+    texliveSmall
   ];
 
   programs.zsh.enable = true;
