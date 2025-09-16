@@ -175,6 +175,7 @@
       pgfplots;
     })
     texlab
+    nodejs
   ];
 
   programs.zsh.enable = true;
