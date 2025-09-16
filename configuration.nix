@@ -142,6 +142,35 @@
     mise
     obsidian
     gnumake
+    (pkgs.texlive.combine {
+      inherit (pkgs.texlive)
+      # base set (≈ texliveSmall)
+      scheme-small
+
+      # tools
+      latexmk
+
+      # math & fonts
+      amsmath
+      amsfonts
+      mathtools
+
+      # structuring & headers/footers
+      memoir
+      enumitem
+      fancyhdr
+      titlesec
+      lastpage
+
+      # hyperlinks, colors, geometry
+      hyperref
+      xcolor
+      geometry
+
+      # graphics & plotting
+      pgf
+      pgfplots;
+    })
   ];
 
   programs.zsh.enable = true;
