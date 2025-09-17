@@ -179,6 +179,7 @@
     })
     texlab
     nodejs
+    gimp
   ];
 
   programs.zsh.enable = true;
